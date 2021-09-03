@@ -29,10 +29,10 @@ jobs:
           echo test, and deploy your project.
           
       - name: replace 
-        run: sed "s/varrrr/${{ github.sha }}/g" ./request.json > request.json
+        run: sed "s/varrrr/${{ github.sha }}/g" ./request.json > ./request.json
         
       - name: read 
-        run: cat request.json
+        run: cat ./request.json
         
       - name: Publish
         run: |
