@@ -5,6 +5,6 @@
     "title" : "Extraction statistics",
     "summary" : "PDF name | Successful | Failed\n ------------ | ------------ | ------------\n EN - 124TRIAZOLE - Sinova Specialities | 1 | 6\n EN - 2NAPHTOLFLAKES - Ansa | 3 | 5\n EN - ACTICIDE MBS - Thor | 4 | 5\n EN - AMASIL99 - BASF | 4 | 6\n EN - Aluminum Paste - Toyal | 4 | 0\n EN - Bisomer Hema Ultra - GEO Sepcialty | 8 | 1\n EN - Bromo 345 - Zhejiang Yongtai | 5 | 6\n EN - Bromotrifluoromethane - Arkema | 3 | 5\n EN - Butadiene - Dow Chemical | 9 | 5\n EN - Cavipor T0 - BASF | 4 | 5\n EN - Diesenl Fuel - Total | 8 | 5\n EN - Flocryl - SNF | 3 | 5\n EN - Gandalf - Adama | 0 | 7\n EN - Glacial Acrylic Acid Sasol | 3 | 6\n EN - Histosec pastilles - Merck | 5 | 4\n EN - Hydroxylamine sulphate - Meyer | 9 | 2\n EN - Luperox 26 - Arkema | 2 | 8\n EN - MERSOLAT H 40 - SPP | 4 | 2\n EN - Mobil Super 1000 - Exxon | 4 | 0\n EN - OKS 473 - OKS | 4 | 14\n EN - STAPAILHYDROLAN - Eckart | 7 | 5\n EN - Sulfur - CS Additive | 11 | 8\n EN - Vazo 64 Poly - Du Pont | 8 | 7\n \n ## Total results\n Name | Successful | Failed\n ------------ | ------------ | ------------\n Total | 113 | 117\n Total percentage | 49% | 50%\n "
   },
-"head_sha" : ${eeeeee},
+"head_sha" : "${var}",
   "completed" : "2021-09-02T19:09Z"
 }
