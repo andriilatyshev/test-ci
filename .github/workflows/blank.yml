@@ -31,6 +31,9 @@ jobs:
       - name: replace 
         run: sed "s/varrrr/${{ github.sha }}/g" ./request.json > request.json
         
+      - name: read 
+        run: cat request.json
+        
       - name: Publish
         run: |
          curl \
