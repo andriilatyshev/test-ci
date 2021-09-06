@@ -24,7 +24,7 @@ jobs:
         run: mvn install
         env:
           GITHUB_USERNAME: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ github.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
           COMMIT_SHA: ${{ github.sha }}
           PR_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
