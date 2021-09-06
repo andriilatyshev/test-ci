@@ -66,7 +66,7 @@ class TestCiApplicationTests {
     static HttpHeaders createHeaders(String username, String password){
         return new HttpHeaders() {{
 
-            set( "Authorization", password );
+            set( "Authorization", "Bearer " + password );
             set("accept", "application/vnd.github.v3+json");
             setContentType(MediaType.APPLICATION_JSON);
         }};
