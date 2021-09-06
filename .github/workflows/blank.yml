@@ -44,7 +44,7 @@ jobs:
          https://api.github.com/repos/${{ github.repository }}/check-runs
          
       - name: replace  2
-        run: sed -i "s/varrrr/${{ pullRequest.head.sha }}/g" ./request2.json
+        run: sed -i "s/varrrr/${{ github.event.pull_request.head.sha }}/g" ./request2.json
         
       - name: read  2
         run: cat ./request2.json
