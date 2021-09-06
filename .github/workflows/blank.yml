@@ -23,6 +23,7 @@ jobs:
       - name: Build and publich
         run: mvn install
         env:
+          GITHUB_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.SECRET_PAT }}
           REPOSITORY: ${{ github.repository }}
           COMMIT_SHA: ${{ github.sha }}

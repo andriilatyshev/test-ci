@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpEntity;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 
+import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,11 +49,7 @@ class TestCiApplicationTests {
         System.out.println("LOGGGG: sha = " + sha + " | repository = " + repository);
 
         RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.add("accept", "application/vnd.github.v3+json");
-        headers.add("authorization", "token " + githubToken);
-
+        HttpHeaders headers = createHeaders(githubUsername, githubToken);
         System.out.println("LOGGGG: headers = " + headers);
 
         ObjectMapper mapper = new ObjectMapper();
@@ -70,6 +68,18 @@ class TestCiApplicationTests {
         }
 
 
+    }
+
+    static HttpHeaders createHeaders(String username, String password){
+        return new HttpHeaders() {{
+            String auth = username + ":" + password;
+            byte[] encodedAuth = Base64.encodeBase64(
+                    auth.getBytes(Charset.forName("US-ASCII")) );
+            String authHeader = "Basic " + new String( encodedAuth );
+            set( "Authorization", authHeader );
+            set("accept", "application/vnd.github.v3+json");
+            setContentType(MediaType.APPLICATION_JSON);
+        }};
     }
 
     private static GithubCheckRunRequest prepareRequest(String sha) {
