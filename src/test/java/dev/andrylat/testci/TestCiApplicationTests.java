@@ -49,7 +49,7 @@ class TestCiApplicationTests {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.add("accept", "application/vnd.github.v3+json");
-        headers.add("authorization", "Bearer " + githubToken);
+        headers.add("authorization", "token " + githubToken);
 
         System.out.println("LOGGGG: headers = " + headers);
 
