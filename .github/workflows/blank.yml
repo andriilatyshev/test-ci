@@ -6,6 +6,9 @@ on:
     branches: [ main ]
 
   workflow_dispatch:
+  
+  repository_dispatch:
+    types: [run-test-ci]
 
 jobs:
   # This workflow contains a single job called "build"
@@ -59,7 +62,7 @@ jobs:
          https://api.github.com/repos/${{ github.repository }}/check-runs
          
       - name: replace 3
-        run: sed -i "s/varrrr/${{ github.context.sha }}/g" ./request3.json
+        run: sed -i "s/varrrr/${{ github.event.client_payload.sha }}/g" ./request3.json
         
       - name: read  3
         run: cat ./request3.json
