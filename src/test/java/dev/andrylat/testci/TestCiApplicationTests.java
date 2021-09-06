@@ -29,22 +29,15 @@ class TestCiApplicationTests {
         String currentRepository = System.getenv("REPOSITORY");
         String commitSha = System.getenv("COMMIT_SHA");
         String prSha = System.getenv("PR_COMMIT_SHA");
-        String externalRepository = System.getenv("EXTERNAL_REPOSITORY");
-        String externalSha = System.getenv("EXTERNAL_REPOSITORY_SHA");
+        //String externalRepository = System.getenv("EXTERNAL_REPOSITORY");
+        //String externalSha = System.getenv("EXTERNAL_REPOSITORY_SHA");
 
-        String sha;
-        if(externalSha != null && !externalSha.isEmpty()) {
-            sha = externalSha;
-        } else if(prSha != null && !prSha.isEmpty()) {
+        String sha = commitSha;
+        if(prSha != null && !prSha.isEmpty()) {
             sha = prSha;
-        } else {
-            sha = commitSha;
         }
 
         String repository = currentRepository;
-        if(externalRepository != null && !externalRepository.isEmpty()) {
-            repository = externalRepository;
-        }
 
         System.out.println("LOGGGG: sha = " + sha + " | repository = " + repository);
 
