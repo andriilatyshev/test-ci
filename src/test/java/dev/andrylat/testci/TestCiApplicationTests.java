@@ -22,6 +22,7 @@ class TestCiApplicationTests {
 
     @Test
     void contextLoads() throws JsonProcessingException {
+        String githubUsername = System.getenv("GITHUB_USERNAME");
         String githubToken = System.getenv("GITHUB_TOKEN");
         String currentRepository = System.getenv("REPOSITORY");
         String commitSha = System.getenv("COMMIT_SHA");
@@ -49,7 +50,7 @@ class TestCiApplicationTests {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.add("accept", "application/vnd.github.v3+json");
-        headers.add("authorization", "Bearer " + githubToken);
+        headers.add("authorization", "token " + githubToken);
 
         System.out.println("LOGGGG: headers = " + headers);
 
