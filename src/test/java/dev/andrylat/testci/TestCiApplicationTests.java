@@ -19,6 +19,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 @SpringBootTest
 class TestCiApplicationTests {
 
@@ -60,7 +62,7 @@ class TestCiApplicationTests {
             System.err.println("LOGGG: exception = " + ex);
         }
 
-
+        fail();
     }
 
     static HttpHeaders createHeaders(String username, String password){
