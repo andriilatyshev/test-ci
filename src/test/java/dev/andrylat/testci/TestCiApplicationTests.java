@@ -75,7 +75,7 @@ class TestCiApplicationTests {
             String auth = username + ":" + password;
             byte[] encodedAuth = Base64.encodeBase64(
                     auth.getBytes(Charset.forName("US-ASCII")) );
-            String authHeader = "Basic " + new String( encodedAuth );
+            String authHeader = "Basic " + new String( auth );
             set( "Authorization", authHeader );
             set("accept", "application/vnd.github.v3+json");
             setContentType(MediaType.APPLICATION_JSON);
