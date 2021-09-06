@@ -65,11 +65,8 @@ class TestCiApplicationTests {
 
     static HttpHeaders createHeaders(String username, String password){
         return new HttpHeaders() {{
-            String auth = username + ":" + password;
-            byte[] encodedAuth = Base64.encodeBase64(
-                    auth.getBytes(Charset.forName("US-ASCII")) );
-            String authHeader = "Basic " + new String( auth );
-            set( "Authorization", authHeader );
+
+            set( "Authorization", password );
             set("accept", "application/vnd.github.v3+json");
             setContentType(MediaType.APPLICATION_JSON);
         }};
