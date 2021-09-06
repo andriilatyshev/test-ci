@@ -42,3 +42,33 @@ jobs:
          -H "Accept: application/vnd.github.v3+json" \
          -d @request.json \
          https://api.github.com/repos/${{ github.repository }}/check-runs
+         
+      - name: replace  2
+        run: sed -i "s/varrrr/${{ pullRequest.head.sha }}/g" ./request2.json
+        
+      - name: read  2
+        run: cat ./request2.json
+        
+      - name: Publish 3
+        run: |
+         curl \
+         -X POST \
+         --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+         -H "Accept: application/vnd.github.v3+json" \
+         -d @request2.json \
+         https://api.github.com/repos/${{ github.repository }}/check-runs
+         
+      - name: replace 3
+        run: sed -i "s/varrrr/${{ github.context.sha }}/g" ./request3.json
+        
+      - name: read  3
+        run: cat ./request3.json
+        
+      - name: Publish 3
+        run: |
+         curl \
+         -X POST \
+         --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+         -H "Accept: application/vnd.github.v3+json" \
+         -d @request3.json \
+         https://api.github.com/repos/${{ github.repository }}/check-runs
