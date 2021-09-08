@@ -21,7 +21,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Build and publich
-        run: mvn install
+        run: |
+          mvn install
+          mvn install
+          mvn install
+          mvn install
+          mvn install
         env:
           GITHUB_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

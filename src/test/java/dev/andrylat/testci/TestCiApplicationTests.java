@@ -17,6 +17,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.TimeZone;
 
 import static org.junit.jupiter.api.Assertions.fail;
@@ -62,7 +63,9 @@ class TestCiApplicationTests {
             System.err.println("LOGGG: exception = " + ex);
         }
 
-        fail();
+        if(new Random().nextInt(100) > 90) {
+            fail();
+        }
     }
 
     static HttpHeaders createHeaders(String username, String password){
