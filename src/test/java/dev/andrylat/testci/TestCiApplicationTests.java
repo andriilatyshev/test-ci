@@ -63,7 +63,9 @@ class TestCiApplicationTests {
             System.err.println("LOGGG: exception = " + ex);
         }
 
-        if(new Random().nextInt(100) > 90) {
+        int res = new Random().nextInt(100);
+        System.out.println("LOOOOOOGer: res = " + res);
+        if( res > 80) {
             fail();
         }
     }

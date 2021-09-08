@@ -27,6 +27,11 @@ jobs:
           mvn install
           mvn install
           mvn install
+          mvn install
+          mvn install
+          mvn install
+          mvn install
+          mvn install
         env:
           GITHUB_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
